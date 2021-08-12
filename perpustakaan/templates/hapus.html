@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p>Apakah Anda yakin ingin menghapus "{{ item }}"?</p>
+
+<form action="{% url 'hapusBuku' item.id %}" method="POST">
+
+    {% csrf_token %}
+    <a href="{% url 'buku' %}">Batal</a>
+    <input type="submit" name='Confirm'>
+
+</form>
+
+{% endblock %}
